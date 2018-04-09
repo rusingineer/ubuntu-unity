@@ -18,6 +18,8 @@
 *              Marco Trevisan <marco.trevisan@canonical.com>
 */
 
+#include <algorithm>
+
 #include <NuxCore/Logger.h>
 #include <UnityCore/DesktopUtilities.h>
 

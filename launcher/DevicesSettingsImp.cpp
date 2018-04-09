@@ -17,6 +17,7 @@
  * Authored by: Andrea Azzarone <andrea.azzarone@canonical.com>
  */
 
+#include <algorithm>
 #include <list>
 
 #include <gio/gio.h>
