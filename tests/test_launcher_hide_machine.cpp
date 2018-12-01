@@ -52,9 +52,9 @@ struct HideModeNever : public TestWithParam<std::tuple<ul::LauncherHideMachine::
 #pragma GCC diagnostic ignored "-Wunused-variable"
 
 TEST_P(HideModeNever, Bool2Bool) {
-  auto quirk = std::tr1::get<0>(GetParam());
-  bool initial_value = std::tr1::get<1>(GetParam());
-  bool final_value = std::tr1::get<2>(GetParam());
+  auto quirk = std::get<0>(GetParam());
+  bool initial_value = std::get<1>(GetParam());
+  bool final_value = std::get<2>(GetParam());
 
   machine.SetMode(ul::LauncherHideMachine::HIDE_NEVER);
   machine.SetQuirk(quirk, initial_value);
