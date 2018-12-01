@@ -8,7 +8,6 @@
 
 """Autopilot test case class for Unity-specific tests."""
 
-from __future__ import absolute_import
 
 
 from codecs import open

@@ -36,7 +36,7 @@ override_dh_auto_configure:
 override_dh_install:
 	# install autopilot tests
 	cd tests/autopilot; \
-	set -ex; for python in $(shell pyversions -r); do \
+	set -ex; for python in $(shell py3versions -r); do \
         $$python setup.py install --root=$(CURDIR)/debian/tmp --install-layout=deb; \
 	done; \
 	cd $(CURDIR)
@@ -59,4 +59,4 @@ ifeq (,$(filter nocheck,$(DEB_BUILD_OPTIONS)))
 endif
 
 %:
-	dh $@ --with translations,quilt,python2,python3,migrations --parallel
+	dh $@ --with translations,quilt,python3,migrations --parallel

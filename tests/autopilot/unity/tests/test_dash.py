@@ -6,7 +6,6 @@
 # under the terms of the GNU General Public License version 3, as published
 # by the Free Software Foundation.
 
-from __future__ import absolute_import
 
 from autopilot.clipboard import get_clipboard_contents
 from autopilot.display import move_mouse_to_screen
@@ -266,14 +265,14 @@ class DashMultiKeyTests(DashSearchInputTests):
         self.unity.dash.reveal_application_scope()
         self.keyboard.press_and_release('Multi_key')
         self.keyboard.type("^o")
-        self.assertSearchText(u'\xf4')
+        self.assertSearchText('\xf4')
 
     def test_multi_key_copyright(self):
         """Pressing the sequences 'Multi_key' + 'c' + 'o' must produce '©'."""
         self.unity.dash.reveal_application_scope()
         self.keyboard.press_and_release('Multi_key')
         self.keyboard.type("oc")
-        self.assertSearchText(u'\xa9')
+        self.assertSearchText('\xa9')
 
     def test_multi_key_delete(self):
         """Pressing 'Multi_key' must not get stuck looking for a sequence."""
@@ -382,7 +381,7 @@ class DashKeyNavTests(DashTestCase):
         self.keyboard.release('Control')
 
         scopebar = self.unity.dash.view.get_scopebar()
-        self.assertEqual(scopebar.active_scope, u'applications.scope')
+        self.assertEqual(scopebar.active_scope, 'applications.scope')
 
         self.keyboard.press('Control')
         self.keyboard.press('Shift')
@@ -722,7 +721,7 @@ class DashScopeBarTests(DashTestCase):
         """Scope selection should work when clicking in
         the rectangle outside of the icon.
         """
-        app_icon = self.scopebar.get_icon_by_name(u'applications.scope')
+        app_icon = self.scopebar.get_icon_by_name('applications.scope')
         self.mouse.click_object(app_icon)
 
         self.assertThat(self.scopebar.active_scope, Eventually(Equals('applications.scope')))

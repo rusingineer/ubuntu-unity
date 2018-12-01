@@ -9,16 +9,16 @@ import dbus
 
 try:
     from autopilot.emulators.unity import get_state_by_path
-except ImportError, e:
-    print "Error: could not import the autopilot python module."
-    print "Make sure the autopilot module is in your $PYTHONPATH."
+except ImportError as e:
+    print("Error: could not import the autopilot python module.")
+    print("Make sure the autopilot module is in your $PYTHONPATH.")
     exit(1)
 
 try:
     import pydot
 except ImportError:
-    print "Error: the 'pydot' module is required to run this script."
-    print "Try installing the 'python-pydot' package."
+    print("Error: the 'pydot' module is required to run this script.")
+    print("Try installing the 'python3-pydot' package.")
     exit(1)
 
 NEXT_NODE_ID=1
@@ -53,7 +53,7 @@ def traverse_tree(state, parent, graph):
     bits = ["%s=%s" % (k, string_rep(state[k])) for k in sorted(state.keys()) if k != 'Children']
     lbl += "\l".join(bits)
     parent.set_label(escape('"{' + lbl + '}"'))
-    if state.has_key('Children'):
+    if 'Children' in state:
         # Add all array nodes as children of this node.
         for child_name, child_state in state['Children']:
             if child_name in NODE_BLACKLIST:
@@ -94,7 +94,7 @@ if __name__ == '__main__':
         if hasattr(graph, write_method_name):
             getattr(graph, write_method_name)(args.output[0])
         else:
-            print "Error: unsupported format: '%s'" % (extension)
+            print("Error: unsupported format: '%s'" % (extension))
     elif args.display:
         from tempfile import NamedTemporaryFile
         from subprocess import call
@@ -104,6 +104,6 @@ if __name__ == '__main__':
         call(["eog", tf.name])
         remove(tf.name)
     else:
-        print 'unknown output mode!'
+        print('unknown output mode!')
 
 

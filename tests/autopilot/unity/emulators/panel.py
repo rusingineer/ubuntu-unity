@@ -7,7 +7,6 @@
 # by the Free Software Foundation.
 #
 
-from __future__ import absolute_import
 
 import logging
 from time import sleep
@@ -132,14 +131,14 @@ class UnityPanel(UnityIntrospectionObject, KeybindingsHelper):
     def get_active_indicator(self):
         """Returns the indicator entry that is currently active"""
         entries = self.get_indicator_entries(False, True)
-        entries = filter(lambda e: e.active == True, entries)
+        entries = [e for e in entries if e.active == True]
         assert(len(entries) <= 1)
         return entries[0] if entries else None
 
     def get_indicator_entry(self, entry_id):
         """Returns the indicator entry for the given ID or None"""
         entries = self.get_indicator_entries(False, True)
-        entries = filter(lambda e: e.entry_id == entry_id, entries)
+        entries = [e for e in entries if e.entry_id == entry_id]
         assert(len(entries) <= 1)
         return entries[0] if entries else None
 

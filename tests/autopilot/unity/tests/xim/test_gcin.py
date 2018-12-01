@@ -6,7 +6,6 @@
 # under the terms of the GNU General Public License version 3, as published
 # by the Free Software Foundation.
 
-from __future__ import absolute_import
 
 from autopilot.matchers import Eventually
 from os import environ
@@ -34,9 +33,9 @@ class GcinTestHangul(GcinTestCase):
     """Tests the Dash and Hud with gcin in hangul mode."""
 
     scenarios = [
-            ('hangul', {'input': 'han geul ', 'result': u'\ud55c\uae00'}),
-            ('morning letters', {'input': 'a chimgeul ', 'result': u'\uc544\uce68\uae00'}),
-            ('national script', {'input': 'gug mun ', 'result': u'\uad6d\ubb38'}),
+            ('hangul', {'input': 'han geul ', 'result': '\ud55c\uae00'}),
+            ('morning letters', {'input': 'a chimgeul ', 'result': '\uc544\uce68\uae00'}),
+            ('national script', {'input': 'gug mun ', 'result': '\uad6d\ubb38'}),
         ]
 
     def setUp(self):

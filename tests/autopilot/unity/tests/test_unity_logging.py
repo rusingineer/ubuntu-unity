@@ -6,8 +6,6 @@
 # under the terms of the GNU General Public License version 3, as published
 # by the Free Software Foundation.
 
-from __future__ import absolute_import
-
 from os import remove
 from os.path import exists
 from tempfile import mktemp

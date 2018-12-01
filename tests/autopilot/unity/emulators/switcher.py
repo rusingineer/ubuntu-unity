@@ -7,7 +7,6 @@
 # by the Free Software Foundation.
 #
 
-from __future__ import absolute_import
 
 import logging
 
@@ -152,7 +151,7 @@ class SwitcherController(UnityIntrospectionObject, KeybindingsHelper):
         for i in self.model.icons:
             current_icon = self.current_icon
             passed=True
-            for key,val in kwargs.iteritems():
+            for key,val in kwargs.items():
                 if not hasattr(current_icon, key) or getattr(current_icon, key) != val:
                     passed=False
             if passed:

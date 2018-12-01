@@ -1,8 +1,6 @@
-from __future__ import absolute_import
 
 """Functions that wrap compizconfig to avoid some unpleasantness in that module."""
 
-from __future__ import absolute_import
 
 from autopilot.utilities import Silence
 

@@ -7,7 +7,6 @@
 # by the Free Software Foundation.
 #
 
-from __future__ import absolute_import
 
 from autopilot.keybindings import KeybindingsHelper
 from autopilot.display import Display

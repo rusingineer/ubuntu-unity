@@ -7,14 +7,13 @@
 # by the Free Software Foundation.
 #
 
-from __future__ import absolute_import
 
 from logging import getLogger
 
 from autopilot.input import Keyboard
 from autopilot.introspection.dbus import StateNotFoundError
 from autopilot.keybindings import KeybindingsHelper
-from HTMLParser import HTMLParser
+from html.parser import HTMLParser
 import re
 
 from unity.emulators import UnityIntrospectionObject
@@ -125,7 +124,7 @@ class HudController(UnityIntrospectionObject, KeybindingsHelper):
         try:
             if len(self.hud_buttons) is 0:
                 return 0
-            [button] = filter(lambda x: x.focused, self.hud_buttons)
+            [button] = [x for x in self.hud_buttons if x.focused]
             return button
         except IndexError:
             raise RuntimeError("No HUD buttons found, is hud active?")

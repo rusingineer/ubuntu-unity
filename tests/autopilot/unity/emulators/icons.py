@@ -7,7 +7,6 @@
 # by the Free Software Foundation.
 #
 
-from __future__ import absolute_import
 
 from unity.emulators import UnityIntrospectionObject
 from unity.emulators.quicklist import Quicklist

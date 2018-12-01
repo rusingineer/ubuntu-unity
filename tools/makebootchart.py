@@ -76,7 +76,7 @@ def draw_bg_graph (ctx, seconds, height):
   ctx.stroke ()
 
   per_ten = 0
-  for pos in xrange (0, int(total_width), int (0.01 * width_multiplier)):
+  for pos in range (0, int(total_width), int (0.01 * width_multiplier)):
     ctx.set_line_width (1)
     ctx.set_source_rgba (0.0, 0.0, 0.0, 0.10)
 
@@ -156,7 +156,7 @@ def build_graph (data, filename, info):
 def build_data_structure (input):
   reader = csv.reader(open(input))
   structure = []
-  print "reading", input
+  print("reading", input)
   for row in reader:
     name = row[0]
     start = float(row[1])
@@ -168,15 +168,15 @@ def build_data_structure (input):
 
 
 def usage():
-  print "use --input=filename.log and --output=filename.svg :)"
+  print("use --input=filename.log and --output=filename.svg :)")
 
 def main():
 
   try:
       opts, args = getopt.getopt(sys.argv[1:], "h", ["help", "output=", "input="])
-  except getopt.GetoptError, err:
+  except getopt.GetoptError as err:
     # print help information and exit:
-    print str(err) # will print something like "option -a not recognized"
+    print(str(err)) # will print something like "option -a not recognized"
     usage()
     sys.exit(2)
 
