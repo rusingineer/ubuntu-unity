@@ -135,7 +135,7 @@ class GnomeKeyGrabberTests(unity.tests.UnityTestCase):
         self.check_accelerator(accelerator)
 
     def test_grab_same_accelerator(self):
-        accelerators = [Accelerator('<Shift><Control><Alt>b', 'Shift+Control+Alt+b') for i in xrange(3)]
+        accelerators = [Accelerator('<Shift><Control><Alt>b', 'Shift+Control+Alt+b') for i in range(3)]
         actions = self.interface.GrabAccelerators([(accelerator.accelerator, 0) for accelerator in accelerators])
 
         self.activatable.clear()

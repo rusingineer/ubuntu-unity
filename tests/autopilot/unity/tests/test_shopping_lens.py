@@ -6,12 +6,11 @@
 # under the terms of the GNU General Public License version 3, as published
 # by the Free Software Foundation.
 
-from __future__ import absolute_import
 
 from autopilot.matchers import Eventually
 from testtools.matchers import Equals, GreaterThan
 from time import sleep
-import urllib2
+import urllib.request, urllib.error, urllib.parse
 import gettext
 
 from unity.tests import UnityTestCase
@@ -23,8 +22,8 @@ class ShoppingScopeTests(UnityTestCase):
     def setUp(self):
         super(ShoppingScopeTests, self).setUp()
         try:
-            urllib2.urlopen("http://www.google.com", timeout=2)
-        except urllib2.URLError, e:
+            urllib.request.urlopen("http://www.google.com", timeout=2)
+        except urllib.error.URLError as e:
             self.skip("Skipping test, no internet connection")
         gettext.install("unity-scope-shopping")
 

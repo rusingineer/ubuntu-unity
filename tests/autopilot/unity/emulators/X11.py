@@ -1,4 +1,3 @@
-from __future__ import absolute_import
 
 from autopilot.utilities import Silence
 from autopilot.display import Display
@@ -90,7 +89,7 @@ def set_primary_monitor(monitor):
     """
     try:
         glxinfo_out = subprocess.check_output("glxinfo")
-    except OSError, e:
+    except OSError as e:
         raise OSError("Failed to run glxinfo: %s. (do you have mesa-utils installed?)" % e)
 
     for dri in _blacklisted_drivers:

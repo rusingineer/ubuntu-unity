@@ -20,7 +20,6 @@
 
 """Functions to deal with ibus service."""
 
-from __future__ import absolute_import
 
 from gi.repository import IBus, GLib
 import os
@@ -93,7 +92,7 @@ def set_active_engines(engine_list):
         raise TypeError("engine_list must be a list of valid engine names.")
     available_engines = get_available_input_engines()
     for engine in engine_list:
-        if not isinstance(engine, basestring):
+        if not isinstance(engine, str):
             raise TypeError("Engines in engine_list must all be strings.")
         if engine not in available_engines:
             raise ValueError(

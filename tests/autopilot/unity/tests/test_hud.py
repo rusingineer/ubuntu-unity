@@ -7,7 +7,6 @@
 # under the terms of the GNU General Public License version 3, as published
 # by the Free Software Foundation.
 
-from __future__ import absolute_import
 
 from autopilot.matchers import Eventually
 from autopilot.display import Display, move_mouse_to_screen, is_rect_on_screen
@@ -230,7 +229,7 @@ class HudBehaviorTests(HudTestsBase):
 
         self.keyboard.type("save")
 
-        self.hud_query_check(u'Save\u2002(File)')
+        self.hud_query_check('Save\u2002(File)')
 
         self.keyboard.press_and_release('Return')
         self.addCleanup(self.keyboard.press_and_release, "Ctrl+s")
@@ -338,7 +337,7 @@ class HudBehaviorTests(HudTestsBase):
         self.keyboard.type("Quit")
         self.assertThat(self.unity.hud.search_string, Eventually(Equals("Quit")))
 
-        self.hud_query_check(u'Quit\u2002(File)')
+        self.hud_query_check('Quit\u2002(File)')
 
         self.keyboard.press_and_release("Enter")
 

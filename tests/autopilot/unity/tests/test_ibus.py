@@ -8,7 +8,6 @@
 
 """Tests to ensure unity is compatible with ibus input method."""
 
-from __future__ import absolute_import
 
 from unity.emulators.ibus import (
     get_active_input_engines,
@@ -85,7 +84,7 @@ class IBusQuery:
         timeout.start()
         while self._context.get_engine() is None:
             if self._abort is True:
-                print "Error! Could not set the engine correctly."
+                print ("Error! Could not set the engine correctly.")
                 return None
             continue
         timeout.cancel()
@@ -99,7 +98,7 @@ class IBusQuery:
         GLib.timeout_add_seconds(5, lambda *args: self._glibloop.quit())
         self._glibloop.run()
 
-        return unicode(self.result, "UTF-8")
+        return str(self.result, "UTF-8")
 
 
 
@@ -240,10 +239,10 @@ class IBusTestsPinyin(IBusWidgetScenariodTests):
     scenarios = multiply_scenarios(
         IBusWidgetScenariodTests.scenarios,
         [
-            ('photo', {'input': 'zhaopian ', 'result' : u'\u7167\u7247' }),
-            ('internet', {'input': 'hulianwang ', 'result' : u'\u4e92\u8054\u7f51'}),
-            ('hello', {'input': 'ninhao ', 'result' : u'\u60a8\u597d' }),
-            ('management', {'input': 'guanli ', 'result' : u'\u7ba1\u7406' }),
+            ('photo', {'input': 'zhaopian ', 'result' : '\u7167\u7247' }),
+            ('internet', {'input': 'hulianwang ', 'result' : '\u4e92\u8054\u7f51'}),
+            ('hello', {'input': 'ninhao ', 'result' : '\u60a8\u597d' }),
+            ('management', {'input': 'guanli ', 'result' : '\u7ba1\u7406' }),
         ]
     )
 
@@ -263,9 +262,9 @@ class IBusTestsHangul(IBusWidgetScenariodTests):
     scenarios = multiply_scenarios(
         IBusWidgetScenariodTests.scenarios,
             [
-                ('transmission', {'input': 'xmfostmaltus ', 'result': u'\ud2b8\ub79c\uc2a4\ubbf8\uc158 '}),
-                ('social', {'input': 'httuf ', 'result': u'\uc18c\uc15c '}),
-                ('document', {'input': 'anstj ', 'result': u'\ubb38\uc11c '}),
+                ('transmission', {'input': 'xmfostmaltus ', 'result': '\ud2b8\ub79c\uc2a4\ubbf8\uc158 '}),
+                ('social', {'input': 'httuf ', 'result': '\uc18c\uc15c '}),
+                ('document', {'input': 'anstj ', 'result': '\ubb38\uc11c '}),
             ]
         )
 
@@ -285,9 +284,9 @@ class IBusTestsAnthy(IBusWidgetScenariodTests):
     scenarios = multiply_scenarios(
         IBusWidgetScenariodTests.scenarios,
         [
-            ('system', {'input': 'shisutemu ', 'result' : u'\u30b7\u30b9\u30c6\u30e0' }),
-            ('game', {'input': 'ge-mu ', 'result' : u'\u30b2\u30fc\u30e0' }),
-            ('user', {'input': 'yu-za- ', 'result' : u'\u30e6\u30fc\u30b6\u30fc' }),
+            ('system', {'input': 'shisutemu ', 'result' : '\u30b7\u30b9\u30c6\u30e0' }),
+            ('game', {'input': 'ge-mu ', 'result' : '\u30b2\u30fc\u30e0' }),
+            ('user', {'input': 'yu-za- ', 'result' : '\u30e6\u30fc\u30b6\u30fc' }),
         ],
         [
             ('commit_enter', {'commit_key': 'Enter'}),

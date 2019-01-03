@@ -7,7 +7,6 @@
 # by the Free Software Foundation.
 #
 
-from __future__ import absolute_import
 
 import logging
 from autopilot.introspection.types import Rectangle

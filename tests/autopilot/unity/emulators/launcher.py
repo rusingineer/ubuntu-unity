@@ -7,7 +7,6 @@
 # by the Free Software Foundation.
 #
 
-from __future__ import absolute_import
 
 from autopilot.input import Mouse
 from autopilot.display import Display, move_mouse_to_screen
@@ -136,7 +135,7 @@ class Launcher(UnityIntrospectionObject, KeybindingsHelper):
         found = False
 
         # Only try 10 times (5 secs.) before giving up.
-        for i in xrange(0, 10):
+        for i in range(0, 10):
             mouse_x = target_x = icon.center.x
             mouse_y = target_y = icon.center.y
             if target_y > h + y:
@@ -225,7 +224,7 @@ class Launcher(UnityIntrospectionObject, KeybindingsHelper):
                 continue
             logger.debug("Selected icon = %s", icon.tooltip_text)
             matches = True
-            for arg,val in kwargs.iteritems():
+            for arg,val in kwargs.items():
                 if not hasattr(icon, arg) or getattr(icon, arg, None) != val:
                     matches = False
                     break
