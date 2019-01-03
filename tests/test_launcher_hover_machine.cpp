@@ -40,9 +40,9 @@ struct SingleQuirk : public TestWithParam<std::tuple<unity::LauncherHoverMachine
 };
 
 TEST_P(SingleQuirk, Bool2Bool) {
-  auto quirk = std::tr1::get<0>(GetParam());
-  bool initial_value = std::tr1::get<1>(GetParam());
-  bool final_value = std::tr1::get<2>(GetParam());
+  auto quirk = std::get<0>(GetParam());
+  bool initial_value = std::get<1>(GetParam());
+  bool final_value = std::get<2>(GetParam());
 
   machine.SetQuirk(quirk, initial_value);
   Utils::WaitForTimeoutMSec(20); // ignore the first signal
@@ -79,16 +79,16 @@ struct MultipleQuirks : public TestWithParam<std::tuple<unity::LauncherHoverMach
 };
 
 TEST_P(MultipleQuirks, DoubleBool2Bool) {
-  auto quirk1 = std::tr1::get<0>(GetParam());
-  auto quirk2 = std::tr1::get<3>(GetParam());
+  auto quirk1 = std::get<0>(GetParam());
+  auto quirk2 = std::get<3>(GetParam());
 
   if (quirk1 == quirk2)
     return;
 
-  bool initial_value1 = std::tr1::get<1>(GetParam());
-  bool final_value1 = std::tr1::get<2>(GetParam());
-  bool initial_value2 = std::tr1::get<4>(GetParam());
-  bool final_value2 = std::tr1::get<5>(GetParam());
+  bool initial_value1 = std::get<1>(GetParam());
+  bool final_value1 = std::get<2>(GetParam());
+  bool initial_value2 = std::get<4>(GetParam());
+  bool final_value2 = std::get<5>(GetParam());
 
   machine.SetQuirk(quirk1, initial_value1);
   machine.SetQuirk(quirk2, initial_value2);
