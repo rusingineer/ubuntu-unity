@@ -56,6 +56,7 @@ Build-Depends: cmake,
                systemd,
                xserver-xorg-video-dummy,
                xsltproc,
+               yaru-theme-icon,
 Standards-Version: 3.9.5
 Homepage: https://launchpad.net/unity
 # If you aren't a member of ~unity-team but need to upload packaging changes,
