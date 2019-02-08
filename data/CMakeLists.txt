@@ -1,3 +1,4 @@
+add_subdirectory(compiz)
 add_subdirectory(pam)
 
 # GSettings Schema
