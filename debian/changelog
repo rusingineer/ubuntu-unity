@@ -1,3 +1,13 @@
+unity (7.5.0+19.04.20190208-0ubuntu1) disco; urgency=medium
+
+  [ Alberts Muktupāvels ]
+  * Install compiz configuration files.
+
+  [ Khurshid Alam ]
+  * Recommend nemo for unity. (LP: #1814506)
+
+ -- Dmitry Shachnev <mitya57@ubuntu.com>  Fri, 08 Feb 2019 11:46:59 +0000
+
 unity (7.5.0+19.04.20190103-0ubuntu1) disco; urgency=medium
 
   [ Marco Trevisan (Treviño) ]
