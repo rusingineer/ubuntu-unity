@@ -50,6 +50,7 @@ bool UserAuthenticatorPam::AuthenticateStart(std::string const& username,
   }
 
   first_prompt_ = true;
+  cancelled_ = false;
   username_ = username;
   authenticate_cb_ = authenticate_cb;
 
@@ -62,6 +63,18 @@ bool UserAuthenticatorPam::AuthenticateStart(std::string const& username,
   }
 
   return !error;
+}
+
+void UserAuthenticatorPam::AuthenticateCancel()
+{
+  if (!pam_handle_)
+  {
+    LOG_DEBUG(logger) << "Unable to cancel authentication because none has been started";
+    return;
+  }
+
+  LOG_DEBUG(logger) << "Cancelling the authentication";
+  cancelled_ = true;
 }
 
 gpointer UserAuthenticatorPam::AuthenticationThreadFunc(gpointer data)
@@ -92,7 +105,10 @@ gpointer UserAuthenticatorPam::AuthenticationThreadFunc(gpointer data)
 
   pam_end(self->pam_handle_, self->status_);
   self->pam_handle_ = nullptr;
-  self->source_manager_.AddTimeout(0, [self] {   self->authenticate_cb_(self->status_ == PAM_SUCCESS); return false; });
+
+  if (!self->cancelled_)
+    self->source_manager_.AddTimeout(0, [self] {   self->authenticate_cb_(self->status_ == PAM_SUCCESS); return false; });
+
   return nullptr;
 }
 
@@ -188,9 +204,17 @@ int UserAuthenticatorPam::ConversationFunction(int num_msg,
     auto future = promise->get_future();
     pam_response* resp_item = &tmp_response[i++];
     resp_item->resp_retcode = 0;
-    resp_item->resp = strdup(future.get().c_str());
+    resp_item->resp = nullptr;
 
-    if (!resp_item->resp)
+    std::future_status status;
+    do
+    {
+        status = future.wait_for(std::chrono::seconds(1));
+        if (status == std::future_status::ready)
+          resp_item->resp = strdup(future.get().c_str());
+    } while (status != std::future_status::ready && !user_auth->cancelled_);
+
+    if (!resp_item->resp || user_auth->cancelled_)
     {
       raise_error = true;
       break;

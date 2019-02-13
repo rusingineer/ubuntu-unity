@@ -43,6 +43,7 @@ public:
 
   // Authenticate the user in a background thread.
   virtual bool AuthenticateStart(std::string const& username, AuthenticateEndCallback const&) = 0;
+  virtual void AuthenticateCancel() = 0;
 
   sigc::signal<void> start_failed;
   sigc::signal<void, std::string, PromiseAuthCodePtr const&> echo_on_requested;
