@@ -1,3 +1,11 @@
+unity (7.5.0+19.04.20190217-0ubuntu1) disco; urgency=medium
+
+  [ Andrea Azzarone ]
+  * locksreen: cancel authentication if externally unlocked (LP:
+    #1733557)
+
+ -- Dmitry Shachnev <mitya57@ubuntu.com>  Sun, 17 Feb 2019 19:14:19 +0000
+
 unity (7.5.0+19.04.20190208-0ubuntu1) disco; urgency=medium
 
   [ Alberts Muktupāvels ]
