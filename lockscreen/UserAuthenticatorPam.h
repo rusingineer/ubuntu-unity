@@ -39,6 +39,7 @@ class UserAuthenticatorPam : public UserAuthenticator
 public:
   UserAuthenticatorPam() = default;
   bool AuthenticateStart(std::string const& username, AuthenticateEndCallback const&) override;
+  void AuthenticateCancel() override;
 
 private:
   UserAuthenticatorPam(UserAuthenticatorPam const&) = delete;
@@ -57,6 +58,7 @@ private:
 
   int status_ = 0;
   bool first_prompt_ = true;
+  bool cancelled_ = false;
   pam_handle* pam_handle_ = nullptr;
   glib::SourceManager source_manager_;
 };

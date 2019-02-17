@@ -536,6 +536,8 @@ void Controller::OnUnlockRequested()
 
   HideBlankWindow();
   HideShields();
+
+  user_authenticator_->AuthenticateCancel();
 }
 
 void Controller::HideShields()
