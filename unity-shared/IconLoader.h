@@ -22,6 +22,7 @@
 
 #include <boost/utility.hpp>
 
+#include <functional>
 #include <memory>
 #include <gtk/gtk.h>
 #include <UnityCore/ActionHandle.h>

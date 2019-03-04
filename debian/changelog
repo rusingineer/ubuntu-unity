@@ -1,3 +1,10 @@
+unity (7.5.0+19.04.20190304-0ubuntu1) disco; urgency=medium
+
+  [ disco/unity: Failed to merge https://git.launchpad.net/unity. ]
+  * Add missing includes for build w/o pch
+
+ -- Marco Trevisan (Treviño) <mail@3v1n0.net>  Mon, 04 Mar 2019 17:07:16 +0000
+
 unity (7.5.0+19.04.20190217-0ubuntu1) disco; urgency=medium
 
   [ Andrea Azzarone ]
@@ -30,6 +37,20 @@ unity (7.5.0+19.04.20190103-0ubuntu1) disco; urgency=medium
 
  -- Dmitry Shachnev <mitya57@ubuntu.com>  Thu, 03 Jan 2019 18:07:42 +0000
 
+<<<<<<<
+=======
+unity (7.5.0+18.10.20180926.2-0ubuntu2) UNRELEASED; urgency=medium
+
+  [ Marco Trevisan (Treviño) ]
+  * debian/gbp.conf: add default settings to use gbp-buildpackage
+  * debian: use native source format
+
+  [ Aleksey Tulinov ]
+  * Add missing includes for build w/o pch
+
+ -- Marco Trevisan (Treviño) <marco@ubuntu.com>  Sun, 04 Nov 2018 20:26:08 -0600
+
+>>>>>>>
 unity (7.5.0+18.10.20180926.2-0ubuntu1) cosmic; urgency=medium
 
   [ Alexander Hale ]

@@ -22,6 +22,7 @@
 
 #include <list>
 #include <string>
+#include <vector>
 
 namespace unity
 {
@@ -47,4 +48,3 @@ bool IsDesktopFilePath(std::string const& path);
 } // namespace unity
 
 #endif
-

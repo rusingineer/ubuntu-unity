@@ -17,7 +17,9 @@
 * Authored by: Marco Trevisan (Treviño) <marco.trevisan@canonical.com>
 */
 
+#include <algorithm>
 #include <unordered_map>
+
 #include <NuxCore/Logger.h>
 
 #include "GLibDBusServer.h"
