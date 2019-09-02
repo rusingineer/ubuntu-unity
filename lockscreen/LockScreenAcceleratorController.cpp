@@ -34,7 +34,7 @@ namespace
 {
 DECLARE_LOGGER(logger, "unity.lockscreen.accelerator.controller");
 
-const std::string MEDIA_KEYS_SCHEMA = "org.gnome.settings-daemon.plugins.media-keys";
+const std::string MEDIA_KEYS_SCHEMA = "com.canonical.unity.settings-daemon.plugins.media-keys";
 const std::vector<std::string> ALLOWED_MEDIA_KEYS = {
   "logout",
   "magnifier",
