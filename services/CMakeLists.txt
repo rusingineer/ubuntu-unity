@@ -34,7 +34,7 @@ set(PANEL_SOURCES
 set(CFLAGS
     ${SERVICE_DEPS_CFLAGS}
     ${SERVICE_DEPS_CFLAGS_OTHER}
-    "-Werror -Wall -Wno-error=deprecated-declarations"
+    "-Wall -Wno-error=deprecated-declarations"
     )
 
 string (REPLACE ";" " " CFLAGS "${CFLAGS}")

@@ -1,3 +1,11 @@
+unity (7.5.0+19.04.20190827-0ubuntu1) eoan; urgency=medium
+
+  * Disable Werror. It doesn't make sense to fail on compiler warnings for the
+    distro.
+  * Rebuild against libgnome-desktop-3-18
+
+ -- Iain Lane <iain@orangesquash.org.uk>  Tue, 27 Aug 2019 11:10:00 +0100
+
 unity (7.5.0+19.04.20190304-0ubuntu1) disco; urgency=medium
 
   [ disco/unity: Failed to merge https://git.launchpad.net/unity. ]
