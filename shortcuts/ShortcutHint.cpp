@@ -31,7 +31,7 @@ namespace shortcut
 {
 namespace
 {
-    const std::string GNOME_MEDIA_SETTINGS = "org.gnome.settings-daemon.plugins.media-keys";
+    const std::string GNOME_MEDIA_SETTINGS = "com.canonical.unity.settings-daemon.plugins.media-keys";
     DECLARE_LOGGER(logger, "unity.shortcut");
 }
 // Ctor

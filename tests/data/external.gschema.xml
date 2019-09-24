@@ -141,7 +141,7 @@
     </key>
   </schema>
 
-  <schema id="org.gnome.settings-daemon.plugins.media-keys" path="/org/gnome/settings-daemon/plugins/media-keys/">
+  <schema id="com.canonical.unity.settings-daemon.plugins.media-keys" path="/com/canonical/unity/settings-daemon/plugins/media-keys/">
     <key type="s" name="volume-mute">
       <default>'XF86AudioMute'</default>
     </key>
