@@ -24,6 +24,7 @@
 
 #include <functional>
 #include <memory>
+#include <functional>
 #include <gtk/gtk.h>
 #include <UnityCore/ActionHandle.h>
 #include <UnityCore/GLibWrapper.h>

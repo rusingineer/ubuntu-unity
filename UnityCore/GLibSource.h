@@ -25,6 +25,7 @@
 #include <glib.h>
 #include <memory>
 #include <unordered_map>
+#include <functional>
 
 namespace unity
 {
