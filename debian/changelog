@@ -1,9 +1,10 @@
-unity (7.5.0+19.10.20190924-0ubuntu2) focal; urgency=medium
+unity (7.5.0+20.04.20200211-0ubuntu1) focal; urgency=medium
 
+  [ Rik Mills ]
   * unity-autopilot: Remove python3-windowmocker dependency. Permits
     removal of window-mocker source, as part of Qt4 removal.
 
- -- Rik Mills <rikmills@kde.org>  Tue, 11 Feb 2020 13:33:55 +0000
+ -- Dmitry Shachnev <mitya57@ubuntu.com>  Tue, 11 Feb 2020 14:07:56 +0000
 
 unity (7.5.0+19.10.20190924-0ubuntu1) eoan; urgency=medium
 
