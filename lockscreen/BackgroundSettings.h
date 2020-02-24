@@ -28,7 +28,7 @@ namespace nux
 class BaseTexture;
 }
 
-class _GnomeBG;
+class _GsdBG;
 
 namespace unity
 {
@@ -45,7 +45,7 @@ public:
   BaseTexturePtr GetBackgroundTexture(int monitor);
 
 private:
-  glib::Object<_GnomeBG> gnome_bg_;
+  glib::Object<_GsdBG> gsd_bg_;
 };
 
 }

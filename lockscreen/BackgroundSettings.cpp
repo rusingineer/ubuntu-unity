@@ -20,7 +20,7 @@
 #include <Nux/Nux.h>
 #include "BackgroundSettings.h"
 
-#include <libgnome-desktop/gnome-bg.h>
+#include <libunity-settings-daemon/gsd-bg.h>
 
 #include "LockScreenSettings.h"
 #include "unity-shared/CairoTexture.h"
@@ -40,10 +40,10 @@ inline int GetGridOffset(int size) { return (size % Settings::GRID_SIZE) / 2; }
 }
 
 BackgroundSettings::BackgroundSettings()
-  : gnome_bg_(gnome_bg_new())
+  : gsd_bg_(gsd_bg_new())
 {
   glib::Object<GSettings> settings(g_settings_new(SETTINGS_NAME.c_str()));
-  gnome_bg_load_from_preferences(gnome_bg_, settings);
+  gsd_bg_load_from_preferences(gsd_bg_, settings);
 }
 
 BaseTexturePtr BackgroundSettings::GetBackgroundTexture(int monitor)
@@ -55,26 +55,26 @@ BaseTexturePtr BackgroundSettings::GetBackgroundTexture(int monitor)
   nux::CairoGraphics cairo_graphics(CAIRO_FORMAT_ARGB32, geo.width, geo.height);
   cairo_t* c = cairo_graphics.GetInternalContext();
 
-  glib::Object<GnomeBG> gnome_bg;
+  glib::Object<GsdBG> gsd_bg;
   double s_width = geo.width / scale;
   double s_height = geo.height / scale;
   cairo_surface_t* bg_surface = nullptr;
 
   if (settings.use_user_background())
   {
-    gnome_bg = gnome_bg_;
+    gsd_bg = gsd_bg_;
   }
   else if (!settings.background().empty())
   {
-    gnome_bg = gnome_bg_new();
-    gnome_bg_set_filename(gnome_bg, settings.background().c_str());
-    gnome_bg_set_placement(gnome_bg, G_DESKTOP_BACKGROUND_STYLE_ZOOM);
+    gsd_bg = gsd_bg_new();
+    gsd_bg_set_filename(gsd_bg, settings.background().c_str());
+    gsd_bg_set_placement(gsd_bg, G_DESKTOP_BACKGROUND_STYLE_ZOOM);
   }
 
-  if (gnome_bg)
+  if (gsd_bg)
   {
     auto *root_window = gdk_get_default_root_window();
-    bg_surface = gnome_bg_create_surface(gnome_bg, root_window, geo.width, geo.height, FALSE);
+    bg_surface = gsd_bg_create_surface(gsd_bg, root_window, geo.width, geo.height, FALSE);
   }
 
   auto const& bg_color = settings.background_color();

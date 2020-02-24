@@ -245,6 +245,7 @@ set(UNITY_PLUGIN_SHARED_DEPS
     json-glib-1.0
     libbamf3>=0.5.3
     gnome-desktop-3.0
+    libunity-settings-daemon
     libnotify
     libstartup-notification-1.0
     nux-4.0>=4.0.5
