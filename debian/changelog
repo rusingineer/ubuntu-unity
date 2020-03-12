@@ -1,3 +1,11 @@
+unity (7.5.0+20.04.20200312-0ubuntu1) focal; urgency=medium
+
+  [ Khurshid Alam ]
+  * Bump dependency of unity-settings-daemon & unity-settings-daemon-
+    schemas
+
+ -- Sebastien Bacher <seb128@ubuntu.com>  Thu, 12 Mar 2020 10:58:27 +0000
+
 unity (7.5.0+20.04.20200211-0ubuntu2) focal; urgency=medium
 
   [ Khurshid Alam ]
